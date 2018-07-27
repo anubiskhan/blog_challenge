@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @blog = Blog.find(params[:blog_id])
+    @blog = Blog.find(params[:comment][:blog_id])
      @comment = @blog.comments.create(params[:comment].permit(:name, :comment))
     redirect_to blog_path(@blog)
   end
